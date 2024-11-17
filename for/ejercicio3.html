@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de Ventas en la Tienda</title>
+  </head>
+  <body>
+    <h1>Registro de Ventas en la Tienda</h1>
+    <button onclick="registrarVentasTienda()">Registrar Ventas</button>
+  </body>
+  <script>
+    const registrarVentasTienda = () => {
+      let cantidadProductos = parseInt(prompt("¿Cuántos productos se han vendido?"));
+
+      let listaProductos = [];
+      let totalDeVentas = 0;
+
+      for (let i = 0; i < cantidadProductos; i++) {
+        let nombreDelProducto = prompt(`Ingresa el nombre del producto ${i + 1}:`);
+        let precioDelProducto = parseFloat(
+          prompt(`Ingresa el precio de ${nombreDelProducto}:`)
+        );
+        let cantidadVendida = parseInt(
+          prompt(`Ingresa la cantidad vendida de ${nombreDelProducto}:`)
+        );
+
+        let totalPorProducto = precioDelProducto * cantidadVendida;
+        totalDeVentas += totalPorProducto;
+
+        listaProductos.push({
+          nombre: nombreDelProducto,
+          precio: precioDelProducto,
+          cantidad: cantidadVendida,
+          total: totalPorProducto,
+        });
+      }
+
+      let resumenVentas = "Resumen de ventas:\n";
+      for (let i = 0; i < listaProductos.length; i++) {
+        resumenVentas += `Producto ${i + 1}: ${listaProductos[i].nombre}, Precio: $${
+          listaProductos[i].precio
+        }, Cantidad vendida: ${listaProductos[i].cantidad}, Total: $${listaProductos[i].total.toFixed(2)}\n`;
+      }
+      resumenVentas += `\nTotal de ventas: $${totalDeVentas.toFixed(2)}`;
+      alert(resumenVentas);
+    };
+  </script>
+</html>

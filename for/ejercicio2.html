@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Contactos</title>
+  </head>
+  <body>
+    <h1>Lista de Contactos</h1>
+    <button onclick="agregarContactos()">Agregar Contactos</button>
+  </body>
+  <script>
+    const agregarContactos = () => {
+      let cantidadContactos = parseInt(
+        prompt("¿Cuántos contactos deseas agregar a la lista?")
+      );
+
+      let nombresContactos = [];
+      let telefonosContactos = [];
+
+      for (let i = 0; i < cantidadContactos; i++) {
+        let nombre = prompt(`Ingresa el nombre del contacto ${i + 1}:`);
+        let telefono = prompt(`Ingresa el número de teléfono de ${nombre}:`);
+
+        nombresContactos.push(nombre);
+        telefonosContactos.push(telefono);
+      }
+
+      let resumen = "Lista de contactos registrados:\n";
+      for (let i = 0; i < cantidadContactos; i++) {
+        resumen += `Contacto ${i + 1}: Nombre: ${nombresContactos[i]}, Teléfono: ${telefonosContactos[i]}\n`;
+      }
+      alert(resumen);
+    };
+  </script>
+</html>

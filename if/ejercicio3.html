@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control de Elevador y Clima</title>
+  </head>
+  <body>
+    <h1>Control de Elevador con Verificación de Clima</h1>
+    <button onclick="controlarElevador()">Iniciar Control</button>
+  </body>
+  <script>
+    const controlarElevador = () => {
+      let climaActual = parseFloat(
+        prompt("Por favor, ingrese la temperatura actual (en °C):")
+      );
+
+      let rangoMinimo = 18;
+      let rangoMaximo = 30;
+
+      if (climaActual >= rangoMinimo && climaActual <= rangoMaximo) {
+        let nivelDestino = parseInt(prompt("¿A qué nivel desea ir? (1-10):"));
+
+        if (nivelDestino >= 1 && nivelDestino <= 10) {
+          console.log(
+            `Temperatura adecuada (${climaActual}°C). Moviendo el elevador al nivel ${nivelDestino}...`
+          );
+        } else {
+          console.log("Nivel no válido. El elevador no se moverá.");
+        }
+      } else {
+        console.log(
+          `Temperatura fuera del rango permitido (${climaActual}°C). El elevador permanecerá en su posición.`
+        );
+      }
+    };
+  </script>
+</html>

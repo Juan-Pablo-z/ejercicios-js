@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asesor de Películas</title>
+  </head>
+  <body>
+    <h1>Asesor de Películas</h1>
+    <button onclick="sugerirPelicula()">Obtener Sugerencia</button>
+  </body>
+  <script>
+    const sugerirPelicula = () => {
+      let edadUsuario = parseInt(prompt("¿Cuántos años tienes?"));
+
+      let sugerencia;
+
+      switch (true) {
+        case edadUsuario < 7:
+          sugerencia =
+            "Te recomendamos películas animadas y educativas para todas las edades.";
+          break;
+        case edadUsuario >= 7 && edadUsuario <= 17:
+          sugerencia =
+            "Sugerimos películas familiares, como animaciones, aventuras y comedias para jóvenes.";
+          break;
+        case edadUsuario >= 18 && edadUsuario <= 30:
+          sugerencia =
+            "Tenemos una variedad de géneros: acción, drama, comedia y ciencia ficción.";
+          break;
+        case edadUsuario > 30:
+          sugerencia =
+            "Te recomendamos películas clásicas y dramas que podrían interesarte.";
+          break;
+        default:
+          sugerencia =
+            "Edad no válida. Por favor, ingresa una edad correcta.";
+      }
+
+      console.log(sugerencia);
+      alert(sugerencia);
+    };
+  </script>
+</html>

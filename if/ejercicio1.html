@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Índice de Masa Corporal</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <h1>Calcula tu Índice de Masa Corporal</h1>
+      <label for="pesoUsuario">Peso (kg):</label><br />
+      <input
+        type="number"
+        id="pesoUsuario"
+        placeholder="Escribe tu peso"
+      /><br />
+      <label for="alturaUsuario">Altura (m):</label><br />
+      <input
+        type="number"
+        id="alturaUsuario"
+        placeholder="Escribe tu altura"
+        step="0.01"
+      /><br />
+      <button onclick="determinarIMC()">Calcular Índice</button>
+
+      <div class="mensajeResultado" id="mensajeResultado"></div>
+    </div>
+
+    <script>
+      const determinarIMC = () => {
+        let pesoUsuario = parseFloat(
+          document.getElementById("pesoUsuario").value
+        );
+        let alturaUsuario = parseFloat(
+          document.getElementById("alturaUsuario").value
+        );
+
+        if (isNaN(pesoUsuario) || isNaN(alturaUsuario)) {
+          document.getElementById("mensajeResultado").innerHTML =
+            "Por favor, proporciona valores numéricos válidos.";
+          return;
+        }
+
+        let indiceMasaCorporal = pesoUsuario / (alturaUsuario * alturaUsuario);
+        let estadoSalud = "";
+
+        if (indiceMasaCorporal < 18.5) {
+          estadoSalud = "Estás por debajo del peso recomendado.";
+        } else if (indiceMasaCorporal >= 18.5 && indiceMasaCorporal < 25) {
+          estadoSalud = "Tienes un peso saludable.";
+        } else if (indiceMasaCorporal >= 25 && indiceMasaCorporal < 30) {
+          estadoSalud = "Tienes un ligero sobrepeso.";
+        } else {
+          estadoSalud = "Estás en la categoría de obesidad.";
+        }
+
+        document.getElementById("mensajeResultado").innerHTML =
+          "Tu Índice de Masa Corporal (IMC) es " +
+          indiceMasaCorporal.toFixed(2) +
+          ". " +
+          estadoSalud;
+      };
+    </script>
+  </body>
+</html>

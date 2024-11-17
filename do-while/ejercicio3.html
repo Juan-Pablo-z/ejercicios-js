@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planificador de Actividades</title>
+  </head>
+  <body>
+    <h1>Planificador de Actividades</h1>
+    <button onclick="planificarActividades()">Iniciar Planificación</button>
+  </body>
+  <script>
+    const planificarActividades = () => {
+      let listaActividades = "";
+      let seguir;
+
+      do {
+        let actividad = prompt("Ingrese la descripción de la actividad:");
+        let fechaLimite = prompt(
+          "Ingrese la fecha límite de la actividad (DD/MM/AAAA):"
+        );
+
+        listaActividades += `Actividad: ${actividad}, Fecha Límite: ${fechaLimite}\n`;
+
+        seguir = prompt("¿Quiere añadir otra actividad? (sí/no)").toLowerCase();
+      } while (seguir === "sí" || seguir === "si");
+
+      if (listaActividades) {
+        alert("Actividades registradas:\n" + listaActividades);
+      } else {
+        alert("No se ha registrado ninguna actividad.");
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clasificación por Edad</title>
+  </head>
+  <body>
+    <h1>Clasificación por Edad</h1>
+    <button onclick="clasificarPorEdad()">Determinar Grupo</button>
+  </body>
+  <script>
+    const clasificarPorEdad = () => {
+      let edadUsuario = parseInt(prompt("¿Cuál es tu edad?"));
+
+      let grupoEdad = "";
+
+      switch (true) {
+        case edadUsuario >= 1 && edadUsuario <= 12:
+          grupoEdad = "infante";
+          break;
+        case edadUsuario >= 13 && edadUsuario <= 17:
+          grupoEdad = "adolescente";
+          break;
+        case edadUsuario >= 18 && edadUsuario <= 64:
+          grupoEdad = "adulto";
+          break;
+        case edadUsuario >= 65:
+          grupoEdad = "persona mayor";
+          break;
+        default:
+          grupoEdad = "edad no válida";
+      }
+
+      console.log(
+        `Con ${edadUsuario} años, perteneces al grupo de ${grupoEdad}.`
+      );
+    };
+  </script>
+</html>

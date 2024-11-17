@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de Vehículos al Estacionamiento</title>
+</head>
+<body>
+    <h1>Ingreso de Vehículos al Estacionamiento</h1>
+    <button onclick="registrarVehiculosEnEstacionamiento()">Registrar Vehículos</button>
+</body>
+<script>
+    const registrarVehiculosEnEstacionamiento = () => {
+        let cantidadVehiculos = parseInt(prompt("¿Cuántos vehículos ingresarán al estacionamiento?"));
+
+        let matrículas = [];
+        let horasIngreso = [];
+
+        for (let i = 0; i < cantidadVehiculos; i++) {
+            let matrícula = prompt(`Ingresa la matrícula del vehículo ${i + 1}:`);
+            let hora = new Date().toLocaleTimeString();
+
+            matrículas.push(matrícula);
+            horasIngreso.push(hora);
+        }
+
+        let resumen = "Resumen de vehículos registrados:\n";
+        for (let i = 0; i < cantidadVehiculos; i++) {
+            resumen += `Vehículo ${i + 1}: Matrícula: ${matrículas[i]}, Hora de ingreso: ${horasIngreso[i]}\n`;
+        }
+        alert(resumen);
+    }
+</script>
+</html>

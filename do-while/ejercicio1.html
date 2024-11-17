@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Total de Números Positivos</title>
+  </head>
+  <body>
+    <h1>Total de Números Positivos</h1>
+    <button onclick="calcularTotalPositivos()">Comenzar</button>
+  </body>
+  <script>
+    const calcularTotalPositivos = () => {
+      let total = 0;
+      let valor;
+
+      do {
+        valor = parseInt(
+          prompt(
+            "Ingrese un número positivo (o un número negativo para finalizar):"
+          )
+        );
+
+        if (valor >= 0) {
+          total += valor;
+        }
+      } while (valor >= 0);
+
+      alert(`El total de los números positivos ingresados es: ${total}`);
+    };
+  </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulación de Impresora de Oficina</title>
+  </head>
+  <body>
+    <h1>Simulación de Impresora de Oficina</h1>
+    <button onclick="iniciarImpresion()">Comenzar Impresión</button>
+  </body>
+  <script>
+    const iniciarImpresion = () => {
+      let cantidadPapel = parseInt(
+        prompt("¿Cuántas hojas de papel están disponibles en la impresora?")
+      );
+
+      if (isNaN(cantidadPapel) || cantidadPapel <= 0) {
+        alert("Por favor, ingrese una cantidad válida de papel.");
+        return;
+      }
+
+      while (cantidadPapel > 0) {
+        let paginas = parseInt(
+          prompt(
+            `Hay ${cantidadPapel} hojas disponibles. ¿Cuántas páginas desea imprimir? Ingrese 0 para cancelar:`
+          )
+        );
+
+        if (paginas === 0) {
+          alert("Operación cancelada.");
+          break;
+        }
+
+        if (isNaN(paginas) || paginas <= 0) {
+          alert("Por favor, ingrese un número válido de páginas.");
+          continue;
+        }
+
+        if (paginas > cantidadPapel) {
+          alert("Error: No hay suficiente papel para imprimir esas páginas.");
+        } else {
+          cantidadPapel -= paginas;
+          alert(
+            `Se imprimieron ${paginas} páginas. Papel restante: ${cantidadPapel} hojas.`
+          );
+
+          if (cantidadPapel === 0) {
+            alert("La impresora se ha quedado sin papel.");
+            break;
+          }
+        }
+      }
+    };
+  </script>
+</html>

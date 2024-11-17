@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulación de Cajero Bancario</title>
+  </head>
+  <body>
+    <h1>Simulación de Cajero Bancario</h1>
+    <button onclick="operarCajero()">Iniciar Operación</button>
+  </body>
+  <script>
+    const operarCajero = () => {
+      let saldoCuenta = parseFloat(
+        prompt("¿Cuál es el saldo disponible en su cuenta bancaria?")
+      );
+
+      if (isNaN(saldoCuenta) || saldoCuenta <= 0) {
+        alert("Por favor, ingrese un saldo inicial válido.");
+        return;
+      }
+
+      alert(`Su saldo actual es: $${saldoCuenta}`);
+
+      while (true) {
+        let cantidadRetiro = parseFloat(
+          prompt(
+            "Ingrese la cantidad que desea retirar o escriba 0 para cancelar la operación:"
+          )
+        );
+
+        if (cantidadRetiro === 0) {
+          alert("Operación cancelada.");
+          break;
+        }
+
+        if (isNaN(cantidadRetiro) || cantidadRetiro <= 0) {
+          alert("Por favor, ingrese una cantidad válida.");
+          continue;
+        }
+
+        if (cantidadRetiro > saldoCuenta) {
+          alert("Error: El monto solicitado excede su saldo disponible.");
+        } else {
+          saldoCuenta -= cantidadRetiro;
+          alert(`Retiro exitoso. Su saldo restante es: $${saldoCuenta}`);
+
+          if (saldoCuenta <= 0) {
+            alert("No tiene suficiente saldo para realizar más retiros.");
+            break;
+          }
+        }
+      }
+    };
+  </script>
+</html>

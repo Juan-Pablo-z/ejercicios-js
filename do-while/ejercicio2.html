@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Libros</title>
+  </head>
+  <body>
+    <h1>Gestión de Libros</h1>
+    <button onclick="gestionarLibros()">Registrar Libros</button>
+  </body>
+  <script>
+    const gestionarLibros = () => {
+      let listaLibros = "";
+      let seguir;
+
+      do {
+        let nombreLibro = prompt("Ingrese el nombre del libro:");
+        let escritor = prompt("Ingrese el nombre del escritor:");
+        let cantidadPaginas = parseInt(
+          prompt("Ingrese la cantidad de páginas del libro:")
+        );
+
+        if (isNaN(cantidadPaginas) || cantidadPaginas <= 0) {
+          alert("Por favor, ingrese un valor válido para las páginas.");
+          continue;
+        }
+
+        listaLibros += `Libro: ${nombreLibro}, Escritor: ${escritor}, Páginas: ${cantidadPaginas}\n`;
+
+        seguir = prompt("¿Quiere añadir otro libro? (sí/no)").toLowerCase();
+      } while (seguir === "sí" || seguir === "si");
+
+      if (listaLibros) {
+        alert("Lista de libros registrados:\n" + listaLibros);
+      } else {
+        alert("No se ha registrado ningún libro.");
+      }
+    };
+  </script>
+</html>

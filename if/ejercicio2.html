@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplicación de Descuento</title>
+    <script>
+      const aplicarDescuento = () => {
+        let totalCompra = parseFloat(
+          prompt("Por favor, ingrese el valor total de su compra:")
+        );
+
+        let porcentajeDescuento = 0;
+
+        if (totalCompra >= 1000) {
+          porcentajeDescuento = 0.1;
+        } else if (totalCompra >= 500) {
+          porcentajeDescuento = 0.05;
+        }
+
+        let totalConDescuento = totalCompra - totalCompra * porcentajeDescuento;
+
+        console.log(`Valor inicial de la compra: $${totalCompra}`);
+        console.log(
+          `Porcentaje de descuento aplicado: ${porcentajeDescuento * 100}%`
+        );
+        console.log(
+          `Total a pagar después del descuento: $${totalConDescuento.toFixed(
+            2
+          )}`
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Sistema de Cálculo de Descuentos</h1>
+    <button onclick="aplicarDescuento()">Aplicar Descuento</button>
+  </body>
+</html>

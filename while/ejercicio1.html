@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sumatoria de Números Pares e Impares</title>
+  </head>
+  <body>
+    <h1>Sumatoria de Números Pares e Impares</h1>
+    <button onclick="realizarCalculo()">Realizar Cálculo</button>
+  </body>
+  <script>
+    const realizarCalculo = () => {
+      let numeroIngresado = parseInt(
+        prompt("Ingresa un número entero positivo:")
+      );
+
+      if (numeroIngresado <= 0 || isNaN(numeroIngresado)) {
+        alert("Por favor, ingresa un número entero positivo válido.");
+        return;
+      }
+
+      let sumaDePares = 0;
+      let sumaDeImpares = 0;
+      let contador = 1;
+
+      while (contador <= numeroIngresado) {
+        if (contador % 2 === 0) {
+          sumaDePares += contador;
+        } else {
+          sumaDeImpares += contador;
+        }
+        contador++;
+      }
+
+      alert(
+        `Suma de números pares: ${sumaDePares}\nSuma de números impares: ${sumaDeImpares}`
+      );
+    };
+  </script>
+</html>
